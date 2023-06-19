@@ -61,11 +61,26 @@ base_select.onchange = function () {
 
 
 
+const list_items = document.querySelector(".list-items");
+
+ingrédients.forEach(function (ingrédient) {
+    list_items.innerHTML += "<li class='item'>" +
+        "<span class='checkbox'>" +
+        "<i class='fa-solid fa-check check-icon'></i>" +
+        "</span>" +
+        "<span class='item-text'>" + ingrédient[0] + "</span>" +
+        "</li>";
+});
+
+
 const selectBtn = document.querySelector(".select-btn"),
     items = document.querySelectorAll(".item");
 selectBtn.addEventListener("click", () => {
     selectBtn.classList.toggle("open");
 });
+
+
+
 items.forEach(item => {
     item.addEventListener("click", () => {
         item.classList.toggle("checked");
