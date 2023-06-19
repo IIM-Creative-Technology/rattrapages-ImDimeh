@@ -160,11 +160,11 @@ function StoreDataInLocalStorage(){
 
     console.log(clients_infos);
     clients_infos.innerHTML = ""
-    clients_infos.innerHTML += "<li>Vous avez choisi l'heure de livraison : " + localStorage.getItem("Time") + "</li>";
-    clients_infos.innerHTML += "<p>Vous avez choisi la base : "+localStorage.getItem("Nom")+"</p>";
-    clients_infos.innerHTML += "<li>Vous avez choisi le prénom : "+localStorage.getItem("prénom")+"</li>";
-    clients_infos.innerHTML += "<li>Vous avez choisi l'adresse : "+localStorage.getItem("adresse")+"</li>";
-    clients_infos.innerHTML += "<li>Vous avez choisi le numéro : "+localStorage.getItem("numéro")+"</li>";
+    clients_infos.innerHTML += "<li>heure de livraison : " + localStorage.getItem("Time") + "</li>";
+    clients_infos.innerHTML += "<p> Nom : "+localStorage.getItem("Nom")+"</p>";
+    clients_infos.innerHTML += "<li>prénom : "+localStorage.getItem("prénom")+"</li>";
+    clients_infos.innerHTML += "<li>adresse : "+localStorage.getItem("adresse")+"</li>";
+    clients_infos.innerHTML += "<li>numéro : "+localStorage.getItem("numéro")+"</li>";
 
     console.log(clients_infos);
 }
@@ -176,7 +176,7 @@ const output = document.getElementById("output");
 output.innerHTML = "<p>Vous avez choisi la base : "+localStorage.getItem("base")+"</p>";
 
 for (let step = 0; step < 4; step++) {
-    output.innerHTML += "<p>Vous avez choisi l'ingrédient : "+localStorage.getItem("ingrédients"+step)+"</p>";
+    output.innerHTML += "<p>l'ingrédient : "+localStorage.getItem("ingrédients"+step)+"</p>";
 
 
 }
@@ -184,9 +184,11 @@ output.innerHTML += "<p>Vous avez choisi la boisson : "+localStorage.getItem("bo
 
 
 const form = document.querySelector("form");
-console.log(form);
+const basic_message = document.querySelector(".basic_message");
+console.log(basic_message);
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     StoreDataInLocalStorage();
+    basic_message.remove();
     form.reset();
 });
