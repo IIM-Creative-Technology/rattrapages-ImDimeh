@@ -129,8 +129,12 @@ listeBoissons.forEach(function (boisson) {
     boisson_select.innerHTML += "<option value='"+boisson+"'>"+boisson+"</option>";
 });
 boisson_select.onchange = function () {
+    if (boisson_select.value == "null"){
+        résultat_boisson.innerHTML = "<p>aucune boisson choisit: </p>";
+    }else{
+        résultat_boisson.innerHTML = "<p>Vous avez choisi la boisson : "+ ( boisson_select.value || "  aucune boisson choisit" ) +"</p>";
 
-    résultat_boisson.innerHTML = "<p>Vous avez choisi la boisson : "+boisson_select.value+"</p>";
+    }
     localStorage.setItem("boisson",boisson_select.value);
 };
 
@@ -153,7 +157,9 @@ function StoreDataInLocalStorage(){
     console.log(localStorage.getItem("Time") + localStorage.getItem("Nom") + localStorage.getItem("prénom") + localStorage.getItem("adresse") + localStorage.getItem("numéro"));
 
     const clients_infos = document.getElementById("client_infos");
+
     console.log(clients_infos);
+    clients_infos.innerHTML = ""
     clients_infos.innerHTML += "<li>Vous avez choisi l'heure de livraison : " + localStorage.getItem("Time") + "</li>";
     clients_infos.innerHTML += "<p>Vous avez choisi la base : "+localStorage.getItem("Nom")+"</p>";
     clients_infos.innerHTML += "<li>Vous avez choisi le prénom : "+localStorage.getItem("prénom")+"</li>";
