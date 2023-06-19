@@ -9,7 +9,7 @@ const bases = ["roquette", "laitue", "pates" , "Mâche" , "Iceberg" , "Pousse d'
     ,"Carotte" , "Pâtes complètes"];
 const ingrédients = [ ["Betterave" ,"Vert"],[ "Carottes","Vert" ],[ "Champignons" ,"Bleu"],[ "Concombre","Vert" ],[ "Choux Rouges" ,"Vert" ],[ "Croûtons","Vert" ],
     [ "Emmental" ,"Vert"],[ "Jambon cru"  ,"Bleu"],[
-        , "Lentilles","Vert"],[ "Maïs ","Vert"],[ "Mimolette","Vert"],[ "Mozarella","Vert"],[
+         "Lentilles","Vert"],[ "Maïs ","Vert"],[ "Mimolette","Vert"],[ "Mozarella","Vert"],[
         "Oeuf","Vert" ],[ "Oignon Rouges" ,"Vert"],[ "Pois chiches","Bleu" ],[ "Pommes","Vert" ],[ "Poulet","Bleu" ],[ "Radis","Vert" ]
     ,[ "Saucisse (Porc)" ,"Bleu"],[
         "Surimi" ,"Bleu"],[ "Tomates" ,"Bleu"],[ "Harricots rouges" ,"Bleu" ],
@@ -37,9 +37,7 @@ const listeBoissons = [
     "Vittel SOCL"
 ];
 
-ingrédients.forEach(function (ingrédient) {
-    console.log( ingrédient[1]);
-});
+
 /*
     2) Créer sur la partie principale un formulaire pour personnaliser sa salade. Il sera
 basé sur les valeurs du tableau. Ainsi, le formulaire se découpera en plusieurs
@@ -57,6 +55,7 @@ bases.forEach(function (base) {
 base_select.onchange = function () {
 
     résultats.innerHTML = "<p>Vous avez choisi la base : "+base_select.value+"</p>";
+    localStorage.setItem("base",base_select.value);
 };
 
 
@@ -87,23 +86,40 @@ items.forEach(item => {
 
         let checked = document.querySelectorAll(".checked"),
             btnText = document.querySelector(".btn-text");
-        if (checked.length > 4) {
+        if (checked && checked.length > 4) {
 
 
             item.classList.toggle("checked");
-            console.log(checked.length);
+
 
         }
-        if(checked && checked.length <= 4){
+        if(checked && checked.length <= 3){
 
             console.log(checked.length);
             btnText.innerText = `${checked[(checked.length)-1].innerText} Selected`;
 
         }else{
             btnText.innerText = `vous pouvez choisir que 4 ingrédients maximum`;
+            localStorage.setItem("ingrédients",checked);
+
+                checked.forEach(function (ingrédient, i) {
+                    console.log(ingrédient.innerText);
+                    localStorage.setItem(("ingrédients" + i  ),ingrédient.innerText);
+
+                });
+
+
+
+
+
         }
     });
 })
+
+
+//console.log(localStorage.getItem("ingrédients3"))
+
+
 
 /*Partie sur les boisson*/
 
@@ -115,6 +131,7 @@ listeBoissons.forEach(function (boisson) {
 boisson_select.onchange = function () {
 
     résultat_boisson.innerHTML = "<p>Vous avez choisi la boisson : "+boisson_select.value+"</p>";
+    localStorage.setItem("boisson",boisson_select.value);
 };
 
 /*
@@ -124,3 +141,15 @@ boisson_select.onchange = function () {
 4) Sur la partie sidebar, afficher les détails de la dernière commande. Si aucune
 commande, afficher “aucune commande existante”
  */
+
+
+// je recupere les ingrédients stocker en local storage
+const output = document.getElementById("output");
+output.innerHTML = "<p>Vous avez choisi la base : "+localStorage.getItem("base")+"</p>";
+
+for (let step = 0; step < 4; step++) {
+    output.innerHTML += "<p>Vous avez choisi l'ingrédient : "+localStorage.getItem("ingrédients"+step)+"</p>";
+
+
+}
+output.innerHTML += "<p>Vous avez choisi la boisson : "+localStorage.getItem("boisson")+"</p>";

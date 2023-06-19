@@ -7,6 +7,15 @@
 }
 body{
   background-color: #e3f2fd;
+  display: flex;
+  flex-direction: row;
+}
+aside{
+  position: relative;
+  width: 30vw;
+  height: 100vh;
+  background-color: #834a4a;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .container{
   position: relative;

@@ -10,11 +10,11 @@
 <body>
 <section class="main">
 
-    <form>
+    <form id="form">
         <div class="base">
             <div id="choose"></div>
-            <select id="base-select">
-                <option value="">Choisir une base</option>
+            <select id="base-select" required>
+                <option value="" required>Choisir une base</option>
 
             </select>
             <div id="résultats"> hello</div>
@@ -35,20 +35,39 @@
             </div>
         </div>
         <div class="boisson">
-            <select id="boisson-select">
+            <select id="boisson-select" required>
             <option value="">Choisir une boisson</option>
 
-                <select>
-                    <div id="résultat-boisson"> </div>
-        </div>
-        <div class="infos-base">
 
-        </div>
 
+                </select>
+            <div id="résultat-boisson"> Hello </div>
+            </div>
+
+
+
+            <label for="time">choisisez une heure de livraison : </label>
+            <input id="time" type="time"   min="09:00" max="18:00"required>
+
+            <label for="Nom"> Nom</label>
+            <input id="Nom" type="text" required>
+
+            <label for="prénom"> Prénom</label>
+            <input id="prénom" type="text"   min="09:00" max="18:00" required>
+
+            <label for="adress">adresse de livraison </label>
+            <input id="adress" type="text"   min="09:00" max="18:00" required>
+
+            <label for="Phone-Number"> numéro de téléphone</label>
+            <input id="Phone-Number" type="tel"   min="09:00" max="18:00" required>
+
+
+            <button id="submit" type="submit">Commander</button>
     </form>
 </section>
 <aside>
-
+<h1> aucune commande existante </h1>
+    <output id="output"></output>
 </aside>
 <script src="script.js"></script>
 </body>
