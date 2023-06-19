@@ -10,7 +10,7 @@
 <body>
 <section class="main">
 
-    <form id="form">
+    <form id="form" onsubmit="StoreDataInLocalStorage()">
         <div class="base">
             <div id="choose"></div>
             <select id="base-select" required>
@@ -55,8 +55,8 @@
             <label for="prénom"> Prénom</label>
             <input id="prénom" type="text"   min="09:00" max="18:00" required>
 
-            <label for="adress">adresse de livraison </label>
-            <input id="adress" type="text"   min="09:00" max="18:00" required>
+            <label for="adresse">adresse de livraison </label>
+            <input id="adresse" type="text"   min="09:00" max="18:00" required>
 
             <label for="Phone-Number"> numéro de téléphone</label>
             <input id="Phone-Number" type="tel"   min="09:00" max="18:00" required>

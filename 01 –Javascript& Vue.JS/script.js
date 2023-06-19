@@ -95,7 +95,7 @@ items.forEach(item => {
         }
         if(checked && checked.length <= 3){
 
-            console.log(checked.length);
+            //console.log(checked.length);
             btnText.innerText = `${checked[(checked.length)-1].innerText} Selected`;
 
         }else{
@@ -103,7 +103,7 @@ items.forEach(item => {
             localStorage.setItem("ingrédients",checked);
 
                 checked.forEach(function (ingrédient, i) {
-                    console.log(ingrédient.innerText);
+                    //console.log(ingrédient.innerText);
                     localStorage.setItem(("ingrédients" + i  ),ingrédient.innerText);
 
                 });
@@ -141,7 +141,14 @@ boisson_select.onchange = function () {
 4) Sur la partie sidebar, afficher les détails de la dernière commande. Si aucune
 commande, afficher “aucune commande existante”
  */
-
+function StoreDataInLocalStorage(){
+    localStorage.setItem("Time",document.getElementById("time").value);
+    localStorage.setItem("Nom",document.getElementById("Nom").value);
+    localStorage.setItem("prénom",document.getElementById("prénom").value);
+    localStorage.setItem("adresse", document.getElementById("adresse").value);
+    localStorage.setItem("numéro",document.getElementById("Phone-Number").value);
+    console.log(localStorage.getItem("Time") + localStorage.getItem("Nom") + localStorage.getItem("prénom") + localStorage.getItem("adresse") + localStorage.getItem("numéro"));
+}
 
 // je recupere les ingrédients stocker en local storage
 const output = document.getElementById("output");
@@ -153,3 +160,4 @@ for (let step = 0; step < 4; step++) {
 
 }
 output.innerHTML += "<p>Vous avez choisi la boisson : "+localStorage.getItem("boisson")+"</p>";
+
