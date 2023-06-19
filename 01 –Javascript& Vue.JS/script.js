@@ -60,7 +60,7 @@ base_select.onchange = function () {
 };
 
 
-
+/* Partie sur les ingrédient */
 const list_items = document.querySelector(".list-items");
 
 ingrédients.forEach(function (ingrédient) {
@@ -104,6 +104,18 @@ items.forEach(item => {
         }
     });
 })
+
+/*Partie sur les boisson*/
+
+const boisson_select = document.getElementById("boisson-select");
+const résultat_boisson = document.getElementById("résultat-boisson");
+listeBoissons.forEach(function (boisson) {
+    boisson_select.innerHTML += "<option value='"+boisson+"'>"+boisson+"</option>";
+});
+boisson_select.onchange = function () {
+
+    résultat_boisson.innerHTML = "<p>Vous avez choisi la boisson : "+boisson_select.value+"</p>";
+};
 
 /*
 3) Au clic sur envoyer, stocker les datas en localstorage ou en dans le store si vous
