@@ -141,14 +141,29 @@ boisson_select.onchange = function () {
 4) Sur la partie sidebar, afficher les détails de la dernière commande. Si aucune
 commande, afficher “aucune commande existante”
  */
+
+
 function StoreDataInLocalStorage(){
     localStorage.setItem("Time",document.getElementById("time").value);
+    console.log(localStorage.getItem("Time"));
     localStorage.setItem("Nom",document.getElementById("Nom").value);
     localStorage.setItem("prénom",document.getElementById("prénom").value);
     localStorage.setItem("adresse", document.getElementById("adresse").value);
     localStorage.setItem("numéro",document.getElementById("Phone-Number").value);
     console.log(localStorage.getItem("Time") + localStorage.getItem("Nom") + localStorage.getItem("prénom") + localStorage.getItem("adresse") + localStorage.getItem("numéro"));
+
+    const clients_infos = document.getElementById("client_infos");
+    console.log(clients_infos);
+    clients_infos.innerHTML += "<li>Vous avez choisi l'heure de livraison : " + localStorage.getItem("Time") + "</li>";
+    clients_infos.innerHTML += "<p>Vous avez choisi la base : "+localStorage.getItem("Nom")+"</p>";
+    clients_infos.innerHTML += "<li>Vous avez choisi le prénom : "+localStorage.getItem("prénom")+"</li>";
+    clients_infos.innerHTML += "<li>Vous avez choisi l'adresse : "+localStorage.getItem("adresse")+"</li>";
+    clients_infos.innerHTML += "<li>Vous avez choisi le numéro : "+localStorage.getItem("numéro")+"</li>";
+
+    console.log(clients_infos);
 }
+
+
 
 // je recupere les ingrédients stocker en local storage
 const output = document.getElementById("output");
@@ -161,3 +176,11 @@ for (let step = 0; step < 4; step++) {
 }
 output.innerHTML += "<p>Vous avez choisi la boisson : "+localStorage.getItem("boisson")+"</p>";
 
+
+const form = document.querySelector("form");
+console.log(form);
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    StoreDataInLocalStorage();
+    form.reset();
+});
