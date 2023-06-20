@@ -86,6 +86,7 @@ base_select.onchange = function () {
 
     résultats.innerHTML = "<p>Vous avez choisi la base : " + base_select.value + "</p>";
     localStorage.setItem("base", base_select.value);
+    basic_message.remove();
     const output = document.getElementById("output");
     base_output.innerHTML = "<p> base : " + localStorage.getItem("base") + "</p>";
 };
@@ -212,6 +213,7 @@ boisson_select.onchange = function () {
 
     }
     localStorage.setItem("boisson", boisson_select.value);
+    basic_message.remove();
     boissons_output.innerHTML = "<p>Vous avez choisi la boisson : " + localStorage.getItem("boisson") + "</p>";
 };
 
@@ -226,7 +228,8 @@ commande, afficher “aucune commande existante”
 
 function StoreDataInLocalStorage() {
     localStorage.setItem("Time", document.getElementById("time").value);
-    console.log(localStorage.getItem("Time"));
+    basic_message.remove();
+
     localStorage.setItem("Nom", document.getElementById("Nom").value);
     localStorage.setItem("prénom", document.getElementById("prénom").value);
     localStorage.setItem("adresse", document.getElementById("adresse").value);
@@ -252,6 +255,7 @@ function StoreDataInLocalStorage() {
 
 const form = document.querySelector("form");
 const basic_message = document.querySelector(".basic_message");
+
 console.log(basic_message);
 form.addEventListener("submit", function (e) {
     e.preventDefault();
