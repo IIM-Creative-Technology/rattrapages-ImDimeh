@@ -5,7 +5,7 @@ pour les boissons. Pour les ingrédients, ils seront catégorisés (bleu ou vert
 facilité de l’exercice, il me semble plus pertinent de découper en plusieurs tableaux ou
 objets).
 */
-const bases = ["roquette", "laitue", "pates" , "Mâche" , "Iceberg" , "Pousse d'épinard" , "Pâtes Fusili" , "Quinoa"
+const bases = ["roquette", "laitue", "pates" , "Mâche" , "Iceberg" , "Pousse d épinard" , "Pâtes Fusili" , "Quinoa"
     ,"Carotte" , "Pâtes complètes"];
 const ingrédients = [ ["Betterave" ,"Vert"],[ "Carottes","Vert" ],[ "Champignons" ,"Bleu"],[ "Concombre","Vert" ],[ "Choux Rouges" ,"Vert" ],[ "Croûtons","Vert" ],
     [ "Emmental" ,"Vert"],[ "Jambon cru"  ,"Bleu"],[
@@ -56,6 +56,8 @@ base_select.onchange = function () {
 
     résultats.innerHTML = "<p>Vous avez choisi la base : "+base_select.value+"</p>";
     localStorage.setItem("base",base_select.value);
+    const output = document.getElementById("output");
+    output.innerHTML = "<p> base : "+localStorage.getItem("base")+"</p>";
 };
 
 
@@ -78,41 +80,62 @@ selectBtn.addEventListener("click", () => {
     selectBtn.classList.toggle("open");
 });
 
-
+let checked = document.querySelectorAll(".checked"),
+    btnText = document.querySelector(".btn-text");
 
 items.forEach(item => {
     item.addEventListener("click", () => {
-        item.classList.toggle("checked");
-
-        let checked = document.querySelectorAll(".checked"),
-            btnText = document.querySelector(".btn-text");
-        if (checked && checked.length > 4) {
+        let checked = document.querySelectorAll(".checked")
 
 
-            item.classList.toggle("checked");
+        if (checked && checked.length <= 3) {
+            console.log(checked.length );
+
+           item.classList.toggle("checked");
+            // je recupere les ingrédients stocker en local storage
+
+
+
 
 
         }
         if(checked && checked.length <= 3){
 
-            //console.log(checked.length);
+
+            let checked = document.querySelectorAll(".checked"),
+                btnText = document.querySelector(".btn-text");
+                output = document.getElementById("output");
+           // console.log(checked.length + ( checked.length <= 3));
             btnText.innerText = `${checked[(checked.length)-1].innerText} Selected`;
+            //console.log(checked.length <= 4);
+            checked.forEach(function (ingrédient, i) {
 
-        }else{
+                localStorage.setItem(("ingrédients" + i  ),ingrédient.innerText);
+
+
+
+
+
+            });
+            output.innerHTML += "<p> ingrédients : "+localStorage.getItem("ingrédients" + (checked.length -1 )  )+"</p>";
+            console.log(checked)
+
+
+            //console.log(localStorage.getItem("ingrédients" + checked[(checked.length)-1].innerText));
+
+
+        }else if(checked && checked.length == 3) {
             btnText.innerText = `vous pouvez choisir que 4 ingrédients maximum`;
-            localStorage.setItem("ingrédients",checked);
-
-                checked.forEach(function (ingrédient, i) {
-                    //console.log(ingrédient.innerText);
-                    localStorage.setItem(("ingrédients" + i  ),ingrédient.innerText);
-
-                });
-
-
-
-
-
+            console.log("stop");
         }
+
+
+
+
+
+
+
+
     });
 })
 
@@ -171,15 +194,7 @@ function StoreDataInLocalStorage(){
 
 
 
-// je recupere les ingrédients stocker en local storage
-const output = document.getElementById("output");
-output.innerHTML = "<p>Vous avez choisi la base : "+localStorage.getItem("base")+"</p>";
 
-for (let step = 0; step < 4; step++) {
-    output.innerHTML += "<p>l'ingrédient : "+localStorage.getItem("ingrédients"+step)+"</p>";
-
-
-}
 output.innerHTML += "<p>Vous avez choisi la boisson : "+localStorage.getItem("boisson")+"</p>";
 
 
@@ -188,6 +203,12 @@ const basic_message = document.querySelector(".basic_message");
 console.log(basic_message);
 form.addEventListener("submit", function (e) {
     e.preventDefault();
+    checked.forEach(function (ingrédient, i) {
+        //console.log(ingrédient.innerText);
+        ingrédient.classList.remove("checked");
+
+    });
+
     StoreDataInLocalStorage();
     basic_message.remove();
     form.reset();
