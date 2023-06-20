@@ -5,15 +5,41 @@ pour les boissons. Pour les ingrédients, ils seront catégorisés (bleu ou vert
 facilité de l’exercice, il me semble plus pertinent de découper en plusieurs tableaux ou
 objets).
 */
-const bases = ["roquette", "laitue", "pates" , "Mâche" , "Iceberg" , "Pousse d épinard" , "Pâtes Fusili" , "Quinoa"
-    ,"Carotte" , "Pâtes complètes"];
-const ingrédients = [ ["Betterave" ,"Vert"],[ "Carottes","Vert" ],[ "Champignons" ,"Bleu"],[ "Concombre","Vert" ],[ "Choux Rouges" ,"Vert" ],[ "Croûtons","Vert" ],
-    [ "Emmental" ,"Vert"],[ "Jambon cru"  ,"Bleu"],[
-         "Lentilles","Vert"],[ "Maïs ","Vert"],[ "Mimolette","Vert"],[ "Mozarella","Vert"],[
-        "Oeuf","Vert" ],[ "Oignon Rouges" ,"Vert"],[ "Pois chiches","Bleu" ],[ "Pommes","Vert" ],[ "Poulet","Bleu" ],[ "Radis","Vert" ]
-    ,[ "Saucisse (Porc)" ,"Bleu"],[
-        "Surimi" ,"Bleu"],[ "Tomates" ,"Bleu"],[ "Harricots rouges" ,"Bleu" ],
-    [ "oignons Frits","Vert"  ],[ "Pastèque" ,"Bleu"],[ "Petits pois" ,"Bleu"],[ "Soja","Bleu"]];
+const bases = ["roquette", "laitue", "pates", "Mâche", "Iceberg", "Pousse d épinard", "Pâtes Fusili", "Quinoa"
+    , "Carotte", "Pâtes complètes"];
+const ingrédients = [
+    ["Betterave", "Vert", 1.99],
+    ["Carottes", "Vert", 0.99],
+    ["Champignons", "Bleu", 2.49],
+    ["Concombre", "Vert", 0.79],
+    ["Choux Rouges", "Vert", 1.49],
+    ["Croûtons", "Vert", 0.69],
+    ["Emmental", "Vert", 3.99],
+    ["Jambon cru", "Bleu", 4.49],
+    ["Lentilles", "Vert", 1.29],
+    ["Maïs", "Vert", 0.89],
+    ["Mimolette", "Vert", 2.99],
+    ["Mozarella", "Vert", 3.49],
+    ["Oeuf", "Vert", 1.09],
+    ["Oignon Rouges", "Vert", 0.99],
+    ["Pois chiches", "Bleu", 2.79],
+    ["Pommes", "Vert", 0.69],
+    ["Poulet", "Bleu", 4.99],
+    ["Radis", "Vert", 0.59],
+    ["Saucisse (Porc)", "Bleu", 3.99],
+    ["Surimi", "Bleu", 2.49],
+    ["Tomates", "Bleu", 1.99],
+    ["Harricots rouges", "Bleu", 2.29],
+    ["oignons Frits", "Vert", 0.79],
+    ["Pastèque", "Bleu", 3.49],
+    ["Petits pois", "Bleu", 1.49],
+    ["Soja", "Bleu", 2.99]
+];
+
+
+const ingrédientsObjets = ingrédients.map(([nom, couleur]) => ({nom, couleur}));
+
+console.log(ingrédientsObjets);
 
 const listeBoissons = [
     "Vitamin Well Framboise (Awake) 50cl",
@@ -48,16 +74,20 @@ de bases (nom/prénom/adresse/tel). Vous avez le choix des types d’input que v
 voulez mettre en place.
 Le bouton envoyer ne sera cliquable que si le bon remplissage du form a eu lieu.*/
 const base_select = document.getElementById("base-select");
+const base_output = document.getElementById("base-output");
 const résultats = document.getElementById("résultats");
+const ingredients_output = document.getElementById("ingredients_output");
+const boissons_output = document.getElementById("boisson_output");
+const prix_output = document.getElementById("prix_output");
 bases.forEach(function (base) {
-    base_select.innerHTML += "<option value='"+base+"'>"+base+"</option>";
+    base_select.innerHTML += "<option value='" + base + "'>" + base + "</option>";
 });
 base_select.onchange = function () {
 
-    résultats.innerHTML = "<p>Vous avez choisi la base : "+base_select.value+"</p>";
-    localStorage.setItem("base",base_select.value);
+    résultats.innerHTML = "<p>Vous avez choisi la base : " + base_select.value + "</p>";
+    localStorage.setItem("base", base_select.value);
     const output = document.getElementById("output");
-    output.innerHTML = "<p> base : "+localStorage.getItem("base")+"</p>";
+    base_output.innerHTML = "<p> base : " + localStorage.getItem("base") + "</p>";
 };
 
 
@@ -89,59 +119,81 @@ items.forEach(item => {
 
 
         if (checked && checked.length <= 3) {
-            console.log(checked.length );
+            console.log(checked.length);
 
-           item.classList.toggle("checked");
+            item.classList.toggle("checked");
             // je recupere les ingrédients stocker en local storage
 
 
-
-
-
         }
-        if(checked && checked.length <= 3){
+        if (checked && checked.length <= 3) {
 
 
             let checked = document.querySelectorAll(".checked"),
                 btnText = document.querySelector(".btn-text");
-                output = document.getElementById("output");
-           // console.log(checked.length + ( checked.length <= 3));
-            btnText.innerText = `${checked[(checked.length)-1].innerText} Selected`;
+            output = document.getElementById("output");
+            let prix = Number(0.00);
+
+            if (checked && checked.length == 4) {
+                checked.forEach(function (ingrédient, i) {
+                    console.log(ingrédient.innerText);
+
+                    ingrédients.forEach(function (ingredients) {
+                        if (ingredients[0] == ingrédient.innerText) {
+                            console.log(ingredients[1] + " " + ingredients[0] + " ");
+
+                            if (ingredients[1] == "Vert") {
+                                prix += ingredients[2];
+
+
+                                console.log(prix);
+
+                            } else if (ingredients[1] == "Bleu") {
+                                prix += ingredients[2]
+
+                                console.log(prix);
+                            }
+                        }
+                    });
+                    localStorage.setItem(("prix"),Number( prix).toFixed(2));
+                    console.log(typeof localStorage.getItem("prix") + " prix " + localStorage.getItem("prix"));
+
+                    prix_output.innerHTML = "<p> prix : " + localStorage.getItem("prix") + "€</p>";
+
+
+                });
+
+
+
+
+            }
+            // console.log(checked.length + ( checked.length <= 3));
+            btnText.innerText = `${checked[(checked.length) - 1].innerText} Selected`;
             //console.log(checked.length <= 4);
             checked.forEach(function (ingrédient, i) {
 
-                localStorage.setItem(("ingrédients" + i  ),ingrédient.innerText);
-
-
-
-
-
+                localStorage.setItem(("ingrédients" + i), ingrédient.innerText);
             });
-            output.innerHTML += "<p> ingrédients : "+localStorage.getItem("ingrédients" + (checked.length -1 )  )+"</p>";
+            ingredients_output.innerHTML += "<p> ingrédients : " + localStorage.getItem("ingrédients" + (checked.length - 1)) + "</p>";
+
             console.log(checked)
 
 
             //console.log(localStorage.getItem("ingrédients" + checked[(checked.length)-1].innerText));
 
 
-        }else if(checked && checked.length == 3) {
+        } else if (checked && checked.length == 3) {
             btnText.innerText = `vous pouvez choisir que 4 ingrédients maximum`;
             console.log("stop");
         }
 
 
-
-
-
-
-
-
     });
 })
-
+const prix = document.getElementById("prix");
+//prix.innerHTML += "<p> prix : "+localStorage.getItem("prix" ) +"</p>";
 
 //console.log(localStorage.getItem("ingrédients3"))
-
 
 
 /*Partie sur les boisson*/
@@ -149,16 +201,18 @@ items.forEach(item => {
 const boisson_select = document.getElementById("boisson-select");
 const résultat_boisson = document.getElementById("résultat-boisson");
 listeBoissons.forEach(function (boisson) {
-    boisson_select.innerHTML += "<option value='"+boisson+"'>"+boisson+"</option>";
+    boisson_select.innerHTML += "<option value='" + boisson + "'>" + boisson + "</option>";
+
 });
 boisson_select.onchange = function () {
-    if (boisson_select.value == "null"){
+    if (boisson_select.value == "null") {
         résultat_boisson.innerHTML = "<p>aucune boisson choisit: </p>";
-    }else{
-        résultat_boisson.innerHTML = "<p>Vous avez choisi la boisson : "+ ( boisson_select.value || "  aucune boisson choisit" ) +"</p>";
+    } else {
+        résultat_boisson.innerHTML = "<p>Vous avez choisi la boisson : " + (boisson_select.value || "  aucune boisson choisit") + "</p>";
 
     }
-    localStorage.setItem("boisson",boisson_select.value);
+    localStorage.setItem("boisson", boisson_select.value);
+    boissons_output.innerHTML = "<p>Vous avez choisi la boisson : " + localStorage.getItem("boisson") + "</p>";
 };
 
 /*
@@ -170,13 +224,13 @@ commande, afficher “aucune commande existante”
  */
 
 
-function StoreDataInLocalStorage(){
-    localStorage.setItem("Time",document.getElementById("time").value);
+function StoreDataInLocalStorage() {
+    localStorage.setItem("Time", document.getElementById("time").value);
     console.log(localStorage.getItem("Time"));
-    localStorage.setItem("Nom",document.getElementById("Nom").value);
-    localStorage.setItem("prénom",document.getElementById("prénom").value);
+    localStorage.setItem("Nom", document.getElementById("Nom").value);
+    localStorage.setItem("prénom", document.getElementById("prénom").value);
     localStorage.setItem("adresse", document.getElementById("adresse").value);
-    localStorage.setItem("numéro",document.getElementById("Phone-Number").value);
+    localStorage.setItem("numéro", document.getElementById("Phone-Number").value);
     console.log(localStorage.getItem("Time") + localStorage.getItem("Nom") + localStorage.getItem("prénom") + localStorage.getItem("adresse") + localStorage.getItem("numéro"));
 
     const clients_infos = document.getElementById("client_infos");
@@ -184,18 +238,16 @@ function StoreDataInLocalStorage(){
     console.log(clients_infos);
     clients_infos.innerHTML = ""
     clients_infos.innerHTML += "<li>heure de livraison : " + localStorage.getItem("Time") + "</li>";
-    clients_infos.innerHTML += "<p> Nom : "+localStorage.getItem("Nom")+"</p>";
-    clients_infos.innerHTML += "<li>prénom : "+localStorage.getItem("prénom")+"</li>";
-    clients_infos.innerHTML += "<li>adresse : "+localStorage.getItem("adresse")+"</li>";
-    clients_infos.innerHTML += "<li>numéro : "+localStorage.getItem("numéro")+"</li>";
+    clients_infos.innerHTML += "<p> Nom : " + localStorage.getItem("Nom") + "</p>";
+    clients_infos.innerHTML += "<li>prénom : " + localStorage.getItem("prénom") + "</li>";
+    clients_infos.innerHTML += "<li>adresse : " + localStorage.getItem("adresse") + "</li>";
+    clients_infos.innerHTML += "<li>numéro : " + localStorage.getItem("numéro") + "</li>";
 
     console.log(clients_infos);
 }
 
 
 
-
-output.innerHTML += "<p>Vous avez choisi la boisson : "+localStorage.getItem("boisson")+"</p>";
 
 
 const form = document.querySelector("form");
