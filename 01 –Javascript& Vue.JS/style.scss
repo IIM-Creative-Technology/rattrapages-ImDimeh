@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+  $black-base: #606060;
+  $green-base: #B2D234;
+
 *{
   margin: 0;
   padding: 0;
@@ -6,16 +10,18 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  background-color: #e3f2fd;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: row;
 }
 aside{
   position: relative;
   width: 30vw;
-  height: 100vh;
-  background-color: #834a4a;
+
+  background-color: $black-base ;
+  color: $green-base;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 .container{
   position: relative;
@@ -31,7 +37,7 @@ aside{
   padding: 0 16px;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: $green-base;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .select-btn .btn-text{
@@ -46,7 +52,7 @@ aside{
   color: #fff;
   font-size: 14px;
   border-radius: 50%;
-  background: #6e93f7;
+  background: $black-base;
   align-items: center;
   justify-content: center;
   transition: 0.3s;
@@ -59,7 +65,7 @@ aside{
   margin-top: 15px;
   border-radius: 8px;
   padding: 16px;
-  background-color: #fff;
+  background-color: $green-base;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   display: none;
 }
@@ -77,7 +83,7 @@ aside{
   border-radius: 8px;
 }
 .list-items .item:hover{
-  background-color: #e7edfe;
+  background-color: #48a413;
 }
 .item .item-text{
   font-size: 16px;
@@ -107,4 +113,59 @@ aside{
 }
 .item.checked .check-icon{
   transform: scale(1);
+}
+
+section.main {
+  background-color: $black-base;
+  color: $green-base;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  width: 70vw;
+  div.base {
+
+
+    margin: 15px auto;
+
+  }
+}
+form  {
+  display: block;
+  margin: 15px auto;
+
+
+  text-align: center;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  input {
+    display: block;
+    margin: 15px auto;
+
+
+    padding: 10px;
+    border: 1px solid $green-base;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+  }
+  button{
+
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 13px 23px;
+    border: 1px solid #222222;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background: $green-base;
+    color: #222222;
+    :hover {
+      border-color: #000000;
+
+    }
+
+  }
 }
