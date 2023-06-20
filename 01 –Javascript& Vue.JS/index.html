@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>Javascript rattrapage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<section class="main">
 
+    <form id="form" >
+        <div class="base">
+            <div id="choose"></div>
+            <select id="base-select" required>
+                <option value="" required>Choisir une base</option>
+
+            </select>
+            <div id="résultats"> hello</div>
+
+        </div>
+        <div class="ingredients">
+
+            <div class="container">
+                <div class="select-btn">
+                    <span class="btn-text">Choisissez  4 ingrédients</span>
+                    <span class="arrow-dwn">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </span>
+                </div>
+                <ul class="list-items">
+
+                </ul>
+            </div>
+        </div>
+        <div class="boisson">
+            <select id="boisson-select" required>
+            <option value="">Choisir une boisson</option>
+
+
+
+                </select>
+            <div id="résultat-boisson"> Hello </div>
+            </div>
+
+
+
+            <label for="time">choisisez une heure de livraison : </label>
+            <input id="time" type="time"   min="09:00" max="18:00"required>
+
+            <label for="Nom"> Nom</label>
+            <input id="Nom" type="text" required>
+
+            <label for="prénom"> Prénom</label>
+            <input id="prénom" type="text"   min="09:00" max="18:00" required>
+
+            <label for="adresse">adresse de livraison </label>
+            <input id="adresse" type="text"   min="09:00" max="18:00" required>
+
+            <label for="Phone-Number"> numéro de téléphone</label>
+            <input id="Phone-Number" type="tel"   min="09:00" max="18:00" required>
+
+
+            <button id="submit" type="submit">Commander</button>
+    </form>
+</section>
+<aside>
+<h1 class="basic_message"> aucune commande existante </h1>
+    <div id="output">
+        <div id="base-output"></div>
+        <div id="ingredients_output"></div>
+        <div id="boisson_output"></div>
+    <div id="prix_output">  </div>
+
+
+    </div>
+    <p> info clients</p>
+    <ul class="client_infos" id="client_infos">
+
+    </ul>
+</aside>
 <script src="script.js"></script>
 </body>
 </html>
