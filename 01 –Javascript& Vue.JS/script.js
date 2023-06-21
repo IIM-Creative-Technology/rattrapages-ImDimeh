@@ -1,7 +1,10 @@
 /*
 1) Créer un ou plusieurs tableau(x) ou un objet JS qui stockent les datas sur les
-salades. Un dédié au bases (roquette, laitue, pates...), un pour les ingrédients, un
-pour les boissons. Pour les ingrédients, ils seront catégorisés (bleu ou vert). (Pour la
+salades.
+Un dédié au bases (roquette, laitue, pates...),
+ un pour les ingrédients, un
+pour les boissons.
+Pour les ingrédients, ils seront catégorisés (bleu ou vert). (Pour la
 facilité de l’exercice, il me semble plus pertinent de découper en plusieurs tableaux ou
 objets).
 */
@@ -37,10 +40,6 @@ const ingrédients = [
 ];
 
 
-const ingrédientsObjets = ingrédients.map(([nom, couleur]) => ({nom, couleur}));
-
-console.log(ingrédientsObjets);
-
 const listeBoissons = [
     "Vitamin Well Framboise (Awake) 50cl",
     "Vitamin Well Péche (Antioxidant) 50cl",
@@ -65,23 +64,34 @@ const listeBoissons = [
 
 
 /*
-    2) Créer sur la partie principale un formulaire pour personnaliser sa salade. Il sera
-basé sur les valeurs du tableau. Ainsi, le formulaire se découpera en plusieurs
-parties. Un choix de base de salade (Requis, 1 seul choix possible), des choix
-d’ingrédients (les ingrédients auront des prix variables, il faudra obligatoirement en
-choisir 4), un choix unique de boisson, puis un select d’heure de livraison et les infos
-de bases (nom/prénom/adresse/tel). Vous avez le choix des types d’input que vous
+    2) Créer sur la partie principale un formulaire pour personnaliser sa salade.
+    Il sera basé sur les valeurs du tableau.
+
+ Ainsi, le formulaire se découpera en plusieurs
+parties.
+ Un choix de base de salade (Requis, 1 seul choix possible),
+ des choix d’ingrédients (les ingrédients auront des prix variables, il faudra obligatoirement en
+choisir 4),
+ un choix unique de boisson,
+ puis un select d’heure de livraison et les infos
+de bases (nom/prénom/adresse/tel).
+ Vous avez le choix des types d’input que vous
 voulez mettre en place.
 Le bouton envoyer ne sera cliquable que si le bon remplissage du form a eu lieu.*/
 const base_select = document.getElementById("base-select");
 const base_output = document.getElementById("base-output");
 const résultats = document.getElementById("résultats");
+// affichage des element dans le aside
 const ingredients_output = document.getElementById("ingredients_output");
 const boissons_output = document.getElementById("boisson_output");
 const prix_output = document.getElementById("prix_output");
+
+
+// j'affiche dynamiquement les bases dans le select
 bases.forEach(function (base) {
     base_select.innerHTML += "<option value='" + base + "'>" + base + "</option>";
 });
+// je recupere la base choisit
 base_select.onchange = function () {
 
     résultats.innerHTML = "<p>Vous avez choisi la base : " + base_select.value + "</p>";
@@ -95,6 +105,7 @@ base_select.onchange = function () {
 /* Partie sur les ingrédient */
 const list_items = document.querySelector(".list-items");
 
+// j'ajoute dynamiquement les ingrédients dans la liste des choix
 ingrédients.forEach(function (ingrédient) {
     list_items.innerHTML += "<li class='item'>" +
         "<span class='checkbox'>" +
@@ -104,7 +115,7 @@ ingrédients.forEach(function (ingrédient) {
         "</li>";
 });
 
-
+// j'ouvre et je referme la liste des ingrédients
 const selectBtn = document.querySelector(".select-btn"),
     items = document.querySelectorAll(".item");
 selectBtn.addEventListener("click", () => {
@@ -114,6 +125,7 @@ selectBtn.addEventListener("click", () => {
 let checked = document.querySelectorAll(".checked"),
     btnText = document.querySelector(".btn-text");
 
+// je réagit au choix des ingrédients
 items.forEach(item => {
     item.addEventListener("click", () => {
         let checked = document.querySelectorAll(".checked")
@@ -156,31 +168,18 @@ items.forEach(item => {
                             }
                         }
                     });
-                    localStorage.setItem(("prix"),Number( prix).toFixed(2));
+                    localStorage.setItem(("prix"), Number(prix).toFixed(2));
                     console.log(typeof localStorage.getItem("prix") + " prix " + localStorage.getItem("prix"));
 
                     prix_output.innerHTML = "<p> prix : " + localStorage.getItem("prix") + "€</p>";
-
-
                 });
-
-
-
-
             }
-            // console.log(checked.length + ( checked.length <= 3));
             btnText.innerText = `${checked[(checked.length) - 1].innerText} Selected`;
-            //console.log(checked.length <= 4);
             checked.forEach(function (ingrédient, i) {
 
                 localStorage.setItem(("ingrédients" + i), ingrédient.innerText);
             });
             ingredients_output.innerHTML += "<p> ingrédients : " + localStorage.getItem("ingrédients" + (checked.length - 1)) + "</p>";
-
-            console.log(checked)
-
-
-            //console.log(localStorage.getItem("ingrédients" + checked[(checked.length)-1].innerText));
 
 
         } else if (checked && checked.length == 3) {
@@ -248,9 +247,6 @@ function StoreDataInLocalStorage() {
 
     console.log(clients_infos);
 }
-
-
-
 
 
 const form = document.querySelector("form");
