@@ -1,1 +1,61 @@
 @use "architecture_SMACSS" ;
+$black-base: #606060;
+$green-base: #B2D234;
+
+
+nav {
+  div.logo img {
+    height: 70px;
+    width: 200px;
+  }
+
+div.menu  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  height: 70px;
+  width: 700px;
+  margin: 0 50px;
+
+  ul  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+
+    width: 500px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 300;
+      &:hover {
+        /* modifier la longeur de la bordure  */
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+  button {
+    background-color: #f2f2f2;
+    border: none;
+    width: 160px;
+    height: 40px;
+    border-radius: 5px;
+    color: $green-base ;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+
+  }
+}
+}
+
+section.main_section {
+  background-size: cover;
+  background-image: url("Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg");
+}
+
