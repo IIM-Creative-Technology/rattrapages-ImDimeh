@@ -183,3 +183,82 @@ section.presentation {
     }
   }
 }
+section.presentation_2 {
+  background-image: url("Assets/ismael-trevino-NDyuR4Huig8-unsplash.jpg");
+  
+
+  
+  height: 100vh;
+  object-fit: cover;
+  background-size: 100%;
+  padding: 50px;
+  
+  
+
+  
+
+  img {
+    margin: auto 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+  }
+
+  div.card {
+    
+    padding-top: 38px;
+    background-color: rgba( $green-base, 0.884);
+    width: 40%;
+    margin-left: 50%;
+    height: auto;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: start;
+    gap: 20px;
+
+    text-align: center;
+    align-items: center;
+
+    
+    h1 {
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 50px;
+        font-weight: 600;
+        height: 140px;
+      }
+    p {
+      color: white;
+      width: 75%;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Poppins", sans-serif;
+      a {
+        text-decoration: underline;
+      }
+
+
+    }
+
+    button {
+      background-color: white;
+      height: 60px;
+      color: $green-base;
+      font-family: "Poppins", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      padding: 14px 60px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 40px;
+      margin-bottom: 48px;
+    }
+
+   
+  }
+}
