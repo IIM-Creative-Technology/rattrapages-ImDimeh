@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +48,7 @@ nav div.menu ul {
 }
 nav div.menu ul a {
   text-decoration: none;
-  color: white;
+  color: #c92525;
   font-size: 18px;
   font-weight: 300;
 }
@@ -69,7 +70,42 @@ nav div.menu button {
 
 section.main_section {
   background-size: cover;
+  background-color: #de1111;
   background-image: url("Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg");
+}
+section.main_section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(96, 160, 216);
+  background: linear-gradient(160deg, rgb(96, 160, 216) 12%, rgb(178, 210, 52) 100%);
+  opacity: 0.39;
+  z-index: 1; /* Pour superposer l'élément pseudo sur l'image */
+}
+
+.title {
+  font-size: 126px;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+  margin-top: 200px;
+}
+.sub_title {
+  color: white;
+  font-size: 60px;
+  font-weight: 100;
+  text-align: center;
+
+  margin: 0px auto;
+  transform: rotate(-9deg);
+  font-style: italic;
+  font-weight: 100;
+
+
+  background-color: #B2D234;
 }
 
 /*# sourceMappingURL=style.css.map */
