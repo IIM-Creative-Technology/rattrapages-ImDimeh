@@ -122,3 +122,64 @@ section.main_section {
 
 }
 
+section.presentation {
+  background-image: url("Assets/61842.jpg");
+  background-repeat: repeat;
+  background-size: 25%;
+  
+  background-color: rgba(255, 255, 255, 0.884);
+  height: 700px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+
+  img {
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    
+  }
+  div.text_container {
+    width: 40%;
+    margin-left: 148px;
+    height: 50%;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: start;
+    gap: 20px;
+    p {
+      width:75% ;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Poppins", sans-serif;
+      
+      
+    }
+   button {
+    background-color: $green-base;
+    height: 60px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      padding: 14px 60px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 40px;
+   }
+
+    h1 {
+      color : $green-base;
+      font-family: "Poppins", sans-serif;
+      font-size: 50px;
+      font-weight: 600;
+    }
+  }
+}
