@@ -27,6 +27,19 @@ nav {
   z-index: 2;
 }
 
+section.presentation div.text_container button,
+section.menu div.force button,
+section.form form button {
+  background-color: #B2D234;
+  height: 60px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+}
+
 nav div.logo img {
   height: 70px;
   width: 200px;
@@ -71,12 +84,80 @@ nav div.menu button {
   cursor: pointer;
 }
 
-section.main_section {
-  background-size: cover;
-  background-color: #de1111;
-  background-image: url("Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg");
-  height: auto;
+/*FOOTER*/
+.container {
+  max-width: 1170px;
+  margin: auto;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer {
+  background-color: #B2D234;
+  padding: 70px 0;
+  margin-top: 80px;
+}
+.footer img {
+  height: 70px;
+  width: 200px;
+  margin-right: 80px;
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+  text-align: center;
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 300;
+  color: white;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover {
+  color: white;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
 section.main_section::after {
   content: "";
   position: absolute;
@@ -86,7 +167,58 @@ section.main_section::after {
   height: 100%;
   background: linear-gradient(160deg, rgb(96, 160, 216) 12%, rgb(178, 210, 52) 100%);
   opacity: 0.5;
-  z-index: 1; /* Pour superposer l'élément pseudo sur l'image */
+  z-index: 1;
+  /* Pour superposer l'élément pseudo sur l'image */
+}
+
+section.menu div.menu_list div.menu.meilleur_vente::before {
+  content: "La plus vendue !";
+  position: absolute;
+  top: -25px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #B2D234;
+  color: white;
+  font-weight: 400;
+  height: 25px;
+  width: 125px;
+  font-size: 12px;
+  text-align: center;
+}
+
+section.form div.img::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: white;
+  z-index: 1;
+}
+
+section.form div.img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 10px);
+  width: 10px;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+@media (max-width: 574px) {
+  section.main_section::after {
+    height: 725px;
+  }
+}
+section.main_section {
+  background-size: cover;
+  background-color: #de1111;
+  background-image: url("Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg");
+  height: auto;
 }
 section.main_section h1.title {
   color: white;
@@ -161,15 +293,7 @@ section.presentation div.text_container p {
   font-family: "Poppins", sans-serif;
 }
 section.presentation div.text_container button {
-  background-color: #B2D234;
-  height: 60px;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
   padding: 14px 60px;
-  border-radius: 8px;
-  border: none;
   margin-top: 40px;
 }
 section.presentation div.text_container h1 {
@@ -280,21 +404,6 @@ section.menu div.menu_list div.menu.meilleur_vente {
   padding: 12px;
   height: 150px;
 }
-section.menu div.menu_list div.menu.meilleur_vente::before {
-  content: "La plus vendue !";
-  position: absolute;
-  top: -25px;
-  right: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: #B2D234;
-  color: white;
-  font-weight: 400;
-  height: 25px;
-  width: 125px;
-  font-size: 12px;
-  text-align: center;
-}
 section.menu div.menu_list div.menu {
   height: 100px;
   margin-bottom: 40px;
@@ -355,15 +464,7 @@ section.menu div.force p {
   width: 430px;
 }
 section.menu div.force button {
-  background-color: #B2D234;
-  height: 60px;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
   padding: 14px 60px;
-  border-radius: 8px;
-  border: none;
   margin-top: 90px;
 }
 
@@ -452,16 +553,7 @@ section.form form textarea {
   height: 110px;
 }
 section.form form button {
-  margin-left: 150px;
-  background-color: #B2D234;
-  height: 60px;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  font-size: 24px;
-  font-weight: 600;
   padding: 14px 60px;
-  border-radius: 8px;
-  border: none;
   margin-top: 10px;
 }
 section.form div.img {
@@ -472,26 +564,6 @@ section.form div.img {
   margin-left: 40px;
   background-size: cover;
   position: relative;
-}
-section.form div.img::before {
-  content: "";
-  position: absolute;
-  top: calc(50% - 10px);
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background-color: white;
-  z-index: 1;
-}
-section.form div.img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: calc(50% - 10px);
-  width: 10px;
-  height: 100%;
-  background-color: white;
-  z-index: 1;
 }
 section.form .form_container {
   display: flex;
@@ -545,80 +617,6 @@ section.form .form_container div [type=email] {
   width: 524px;
 }
 
-/*responsive*/
-.container {
-  max-width: 1170px;
-  margin: auto;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-}
-
-ul {
-  list-style: none;
-}
-
-.footer {
-  background-color: #B2D234;
-  padding: 70px 0;
-  margin-top: 80px;
-}
-.footer img {
-  height: 70px;
-  width: 200px;
-  margin-right: 80px;
-}
-
-.footer-col {
-  width: 25%;
-  padding: 0 15px;
-  text-align: center;
-}
-.footer-col h4 {
-  font-size: 18px;
-  color: #ffffff;
-  text-transform: capitalize;
-  margin-bottom: 35px;
-  font-weight: 500;
-  position: relative;
-}
-.footer-col ul li:not(:last-child) {
-  margin-bottom: 10px;
-}
-.footer-col ul li a {
-  font-size: 16px;
-  text-transform: capitalize;
-  text-decoration: none;
-  font-weight: 300;
-  color: white;
-  display: block;
-  transition: all 0.3s ease;
-}
-.footer-col ul li a:hover {
-  color: white;
-  padding-left: 8px;
-}
-.footer-col .social-links a {
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 0 10px 10px 0;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  color: #ffffff;
-  transition: all 0.5s ease;
-}
-.footer-col .social-links a:hover {
-  color: #24262b;
-  background-color: #ffffff;
-}
-
 @media (max-width: 767px) {
   .footer-col {
     width: 50%;
@@ -631,9 +629,6 @@ ul {
   }
   nav div.menu {
     display: none;
-  }
-  section.main_section::after {
-    height: 725px;
   }
   section.presentation {
     background-image: url("Assets/61842.jpg");

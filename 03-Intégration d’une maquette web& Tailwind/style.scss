@@ -12,57 +12,7 @@ $background-color_4: #ffffff;
 
 
 
-nav {
-  div.logo img {
-    height: 70px;
-    width: 200px;
-  }
 
-div.menu  {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  height: 70px;
-  width: 700px;
-  margin: 0 50px;
-
-  ul  {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-
-    width: 500px;
-
-    a {
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-      font-weight: 300;
-      &:hover {
-        /* modifier la longeur de la bordure  */
-        border-bottom: 2px solid white;
-      }
-    }
-  }
-  button {
-    background-color: #f2f2f2;
-    border: none;
-    width: 160px;
-    height: 40px;
-    border-radius: 5px;
-    color: $green-base ;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-   
-
-  }
-}
-}
 
 section.main_section {
   background-size: cover;
@@ -70,18 +20,7 @@ section.main_section {
   background-image: url("Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg") ;
   height: auto;
 
-   &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-     
-      background: linear-gradient(160deg, rgba(96,160,216,1) 12%, rgba(178,210,52,1) 100%);
-      opacity: 0.5;
-      z-index: 1; /* Pour superposer l'élément pseudo sur l'image */
-    }
+  
     h1.title {
       color: white;
       font-size: 126px;
@@ -171,15 +110,9 @@ section.presentation {
       
     }
    button {
-    background-color: $green-base;
-    height: 60px;
-    color: white;
-    font-family: "Poppins", sans-serif;
-      font-size: 24px;
-      font-weight: 600;
+    
       padding: 14px 60px;
-      border-radius: 8px;
-      border: none;
+      
       margin-top: 40px;
    }
 
@@ -311,23 +244,7 @@ div.menu_list_force_container{
         border: 1px solid $green-base;
         padding: 12px ;
         height: 150px;
-        &::before{
-          content: "La plus vendue !";
-          
-            position: absolute;
-            top: -25px;
-            right: 0px;
-            width: 100%;
-            height: 100%;
-            background-color: #B2D234;
-            color: white;
-            font-weight: 400;
-            height: 25px;
-            width: 125px;
-            font-size: 12px;
-            text-align: center;
-
-        }
+        
       }
     div.menu {
       height: 100px;
@@ -401,15 +318,10 @@ div.menu_list_force_container{
           width: 430px;
       }
       button {
-          background-color: $green-base;
-            height: 60px;
-            color: white;
-            font-family: "Poppins", sans-serif;
-            font-size: 24px;
-            font-weight: 600;
+          
+            
             padding: 14px 60px;
-            border-radius: 8px;
-            border: none;
+            
             margin-top: 90px;
       }
 
@@ -521,16 +433,9 @@ section.form {
         height: 110px;
       }
       button {
-        margin-left: 150px;
-          background-color: $green-base;
-            height: 60px;
-            color: white;
-            font-family: "Poppins", sans-serif;
-            font-size: 24px;
-            font-weight: 600;
+        
             padding: 14px 60px;
-            border-radius: 8px;
-            border: none;
+            
             margin-top: 10px;
       }
   }
@@ -544,26 +449,8 @@ div.img {
   background-size: cover;
   position: relative;
  
-  &::before {
-    content: "";
-    position: absolute;
-    top: calc(50% - 10px);
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background-color: white;
-    z-index: 1;
-  }
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: calc(50% - 10px);
-      width: 10px;
-      height: 100%;
-      background-color: white;
-      z-index: 1;
-    }
+ 
+   
 
 }
 .form_container {
@@ -630,95 +517,7 @@ div.img {
 
 
 
-/*responsive*/
-.container {
-  max-width: 1170px;
-  margin: auto;
-}
 
-.row {
-      display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-}
-
-ul {
-  list-style: none;
-}
-
-.footer {
-  background-color: $green-base;
-  padding: 70px 0;
-  margin-top: 80px;
-
-  img {
-        height: 70px;
-          width: 200px;
-      margin-right: 80px;
-  }
-}
-
-.footer-col {
-  width: 25%;
-  padding: 0 15px;
-      text-align: center;
-
-  h4 {
-    font-size: 18px;
-    color: $color_1;
-    text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 500;
-    position: relative;
-
-   
-  }
-
-  ul {
-    li {
-      &:not(:last-child) {
-        margin-bottom: 10px;
-      }
-
-      a {
-        font-size: 16px;
-        text-transform: capitalize;
-        
-        text-decoration: none;
-        font-weight: 300;
-        color: white;
-        display: block;
-        transition: all 0.3s ease;
-
-        &:hover {
-          color: white;
-          padding-left: 8px;
-        }
-      }
-    }
-  }
-
-  .social-links {
-    a {
-      display: inline-block;
-      height: 40px;
-      width: 40px;
-      background-color: $background-color_3;
-      margin: 0 10px 10px 0;
-      text-align: center;
-      line-height: 40px;
-      border-radius: 50%;
-      color: $color_1;
-      transition: all 0.5s ease;
-
-      &:hover {
-        color: $color_3;
-        background-color: $background-color_4;
-      }
-    }
-  }
-}
 
 @media( max-width: 767px) {
   .footer-col {
@@ -735,11 +534,7 @@ ul {
    div.menu {
     display: none;
   }}
-  section.main_section::after {
-      
-      height: 725px;
-      
-    }
+  
 
 section.presentation {
   background-image: url("Assets/61842.jpg");

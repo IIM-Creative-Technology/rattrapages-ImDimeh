@@ -1,0 +1,145 @@
+@use 'base' ;
+
+nav {
+  div.logo img {
+    height: 70px;
+    width: 200px;
+  }
+
+  div.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    height: 70px;
+    width: 700px;
+    margin: 0 50px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+
+      width: 500px;
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+
+        &:hover {
+          /* modifier la longeur de la bordure  */
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+
+    button {
+      background-color: #f2f2f2;
+      border: none;
+      width: 160px;
+      height: 40px;
+      border-radius: 5px;
+      color: base.$green-base ;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+
+
+    }
+  }
+}
+
+/*FOOTER*/
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer {
+  background-color: base.$green-base;
+  padding: 70px 0;
+  margin-top: 80px;
+
+  img {
+    height: 70px;
+    width: 200px;
+    margin-right: 80px;
+  }
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+  text-align: center;
+
+  h4 {
+    font-size: 18px;
+    color: base.$color_1;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+
+
+  }
+
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      a {
+        font-size: 16px;
+        text-transform: capitalize;
+
+        text-decoration: none;
+        font-weight: 300;
+        color: white;
+        display: block;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: white;
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  .social-links {
+    a {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      background-color: base.$background-color_3;
+      margin: 0 10px 10px 0;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      color: base.$color_1;
+      transition: all 0.5s ease;
+
+      &:hover {
+        color: base.$color_3;
+        background-color: base.$background-color_4;
+      }
+    }
+  }
+}
