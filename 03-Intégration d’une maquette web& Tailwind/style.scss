@@ -808,6 +808,34 @@ div.menu_list_force_container{
     text-align: center;
 }
 }
+
+section.bleur_ou_vert { 
+      height: 175vh;
+      gap: 30px;
+  div.card{
+  width: 80%;
+  height: 600px;
+  div {
+    height: 80%;
+  }
+}
+}
+section.form {
+ div.img {
+   display: none;
+ } 
+ .form_container div [type=email] {
+   width: 350px;
+ }
+ form button {
+    margin-left: 0px;
+    margin-top: 30px;
+ }
+}
+
+.footer {
+  margin-top: 200px;
+}
   .footer-col {
     width: 100%;
   }
