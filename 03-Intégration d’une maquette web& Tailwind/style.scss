@@ -728,6 +728,58 @@ ul {
 }
 
 @media (max-width: 574px) {
+
+  nav {
+    justify-content: space-around;
+
+   div.menu {
+    display: none;
+  }}
+  section.main_section::after {
+      
+      height: 725px;
+      
+    }
+
+section.presentation {
+  background-image: url("Assets/61842.jpg");
+  background-repeat: repeat;
+  background-size: 25%;
+
+  background-color: rgba(255, 255, 255, 0.884);
+  height: 700px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+
+  img {
+    
+    display: none;
+
+  }
+
+  div.text_container {
+      width: 80%;
+        margin-top: -260px;
+        margin-left: 50px;
+            align-items: center;
+            text-align: center;
+
+        button {
+          margin-left: auto;
+            margin-right: auto;
+        }
+   
+
+    
+
+    
+  }
+}
+
   .footer-col {
     width: 100%;
   }
