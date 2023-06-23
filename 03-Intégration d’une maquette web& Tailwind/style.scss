@@ -779,7 +779,35 @@ section.presentation {
     
   }
 }
+section.presentation_2 {
 
+  background-size: 200%;
+  height: 800px;
+  div.card {
+        width: 100%;
+        height: auto;
+        margin-left: 0px;
+  }
+}
+section.menu {
+  h1.title {
+    text-align: center;
+  }
+p.sub_title {
+  width: 70vw;
+}
+div.force p {
+  width: 544px;
+}
+div.menu_list {
+      width: 500px;
+}
+div.menu_list_force_container{
+  display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+}
+}
   .footer-col {
     width: 100%;
   }
