@@ -1,20 +1,27 @@
 import SwiftUI
 
-  let ingredients = ["roquette", "laitue", "pates", "Mâche", "Iceberg", "Pousse d'épinard", "Pâtes Fusili", "Quinoa", "Carotte", "Pâtes complètes"]
-
 struct ContentView: View {
+    let ingredients = ["roquette", "laitue", "pates", "Mâche", "Iceberg", "Pousse d'épinard", "Pâtes Fusili", "Quinoa", "Carotte", "Pâtes complètes"]
+    @State private var selectedIngredient = ""
+
     var body: some View {
-        Text("Bonjour, Swift UI !")
-            .font(.title)
-            .foregroundColor(.blue)
-        Form {
-            ForEach(ingredients, id: \.self) { ingredient in
-                Text(ingredient)
+
+        NavigationView {
+            VStack {
+                Text("Bonjour, Swift UI !")
+                    .font(.title)
+                    .foregroundColor(.blue)
+                
+                Form {
+                    Picker("Ingrédient", selection: $selectedIngredient) {
+                        ForEach(ingredients, id: \.self) { ingredient in
+                            Text(ingredient)
+                        }
+                    }
+                }
             }
+            .navigationTitle("Ingrédients")
         }
-        .navigationTitle("Ingrédients")
-
-
     }
 }
 
