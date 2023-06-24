@@ -23,6 +23,20 @@ l'un des énoncé du projets demandait de faire le style avec une architecture S
 * Theme file : Fichier CSS qui permet de personnaliser l'apparence du site en fonction de différents thèmes ou variations, comme un thème clair ou sombre.
 
 
+## Badges
+
+Add badges from somewhere like: [shields.io](https://shields.io/)
+
+[![Langage](https://img.shields.io/badge/langage-Javascript-yellow)](https://choosealicense.com/licenses/mit/)
+
+
+[![Langage](https://img.shields.io/badge/langage-Css-blue)](https://choosealicense.com/licenses/mit/)
+
+[![Langage](https://img.shields.io/badge/langage-Html-green)](https://choosealicense.com/licenses/mit/)
+
+[![Langage](https://img.shields.io/badge/architecture-SMACSS-lightpink)](https://choosealicense.com/licenses/mit/)
+
+[![Langage](https://img.shields.io/badge/syntaxe-SCSS-pink)](https://choosealicense.com/licenses/mit/)
 
 ## Authors
 
