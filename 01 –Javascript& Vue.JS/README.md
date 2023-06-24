@@ -5,6 +5,17 @@
 ceci est le readme de mon rattrapage de la matière javascript .
 
 
+voici l'énoncé complete : 
+
+Créer un ou plusieurs tableaux ou un objet JS pour stocker les données sur les salades. Un tableau sera dédié aux bases de salade (roquette, laitue, pâtes...), un autre pour les ingrédients (catégorisés en bleu ou vert), et un dernier pour les boissons.
+
+Créer un formulaire sur la partie principale pour personnaliser sa salade. Le formulaire sera basé sur les valeurs des tableaux précédents. Il se découpera en plusieurs parties : choix d'une base de salade (obligatoire, un seul choix possible), choix d'ingrédients (4 ingrédients obligatoires avec des prix variables), choix d'une boisson unique, sélection de l'heure de livraison, et informations de base (nom, prénom, adresse, téléphone). Vous pouvez choisir les types d'input que vous souhaitez utiliser. Le bouton "envoyer" ne sera cliquable que si le formulaire est correctement rempli.
+
+Au clic sur le bouton "envoyer", stocker les données localement (localstorage) ou dans le store si vous utilisez Vue.js, puis vider le formulaire.
+
+Sur la partie sidebar, afficher les détails de la dernière commande. Si aucune commande n'a été passée, afficher le message "aucune commande existante".
+
+Sur la partie sidebar, afficher en temps réel les sélections en cours effectuées par l'utilisateur dans le formulaire. Par exemple, si l'utilisateur choisit une base de pâtes, afficher dans une carte dédiée sur la sidebar : "Base : salade de pâtes". Afficher également un prix basé sur la sélection de l'utilisateur. Le prix sera déterminé arbitrairement en fonction des ingrédients choisis. Le prix s'affichera lorsque 4 ingrédients seront choisis et variera en fonction du nombre d'ingrédients bleus et verts choisis (veuillez créer des prix différents selon la composition).
 
 
 
