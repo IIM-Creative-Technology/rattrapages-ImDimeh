@@ -1,5 +1,5 @@
 
-# Rattrapage Javascript Mehdi Bellam
+## Rattrapage Javascript Mehdi Bellam
 
 
 ceci est le readme de mon rattrapage de la matière javascript .
@@ -17,7 +17,42 @@ Sur la partie sidebar, afficher les détails de la dernière commande. Si aucune
 
 Sur la partie sidebar, afficher en temps réel les sélections en cours effectuées par l'utilisateur dans le formulaire. Par exemple, si l'utilisateur choisit une base de pâtes, afficher dans une carte dédiée sur la sidebar : "Base : salade de pâtes". Afficher également un prix basé sur la sélection de l'utilisateur. Le prix sera déterminé arbitrairement en fonction des ingrédients choisis. Le prix s'affichera lorsque 4 ingrédients seront choisis et variera en fonction du nombre d'ingrédients bleus et verts choisis (veuillez créer des prix différents selon la composition).
 
+# explication du code 
 
+ ## modification dynamique des commandes :
+ 
+dans un premier temp je réagit au chengement  au niveaux du select .
+
+ensuite je change le texte en dessous afin d'indiquer a l'utilisateur que sont choix est prit en compte
+
+Je store la donnée dans le localstorage .
+
+je retire le message "aucune commande en cours " 
+
+et enfin dans l'aside j'ajoute l'information de la base choisit 
+
+```
+  base_select.onchange = function () {
+
+    résultats.innerHTML = "<p>Vous avez choisi la base : " + base_select.value + "</p>";
+    localStorage.setItem("base", base_select.value);
+    basic_message.remove();
+    const output = document.getElementById("output");
+    base_output.innerHTML = "<p> base : " + localStorage.getItem("base") + "</p>";
+};
+```
+ceci est la base et comment j'ai fait pour toute les information du formulaire .
+
+
+## veriffication du formulaire :
+
+comme dans l'exemple si dessous j'ai ajouté la propriété required au donné de mon formulaire ce qui fait que je ne peux pas l'envoyer sasn avoir remplie ces information
+
+```
+
+            <label for="Phone-Number"> numéro de téléphone</label>
+            <input id="Phone-Number" type="tel"   min="09:00" max="18:00" required>
+```
 
 ## Lien utilisée
 # loom
